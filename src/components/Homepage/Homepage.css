@@ -1,0 +1,11 @@
+.homepage {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 834px) {
+  .homepage {
+    flex-direction: column;
+  }
+}
