@@ -1,8 +1,8 @@
 import { createContext } from 'react'
-import type { QueryMarket } from '../services/queryService'
+import type { StockData } from '../services/queryService'
 
 interface QueryState {
-  stocks: QueryMarket[] | undefined
+  stocks: StockData[] | undefined
   stockSearch: string
   cursor: number
   setCursor: (cursor: number) => void

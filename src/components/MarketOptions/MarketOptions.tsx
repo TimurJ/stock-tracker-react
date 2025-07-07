@@ -18,7 +18,7 @@ const MarketOptions: React.FC<MarketOptionsProps> = ({ market }) => {
           position={i}
           symbol={stock.symbol}
           active={i === cursor}
-          stockName={stock.name}
+          stockName={stock.description}
         />
       ))}
     </div>

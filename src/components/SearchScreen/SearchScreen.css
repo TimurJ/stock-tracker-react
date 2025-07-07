@@ -1,8 +1,8 @@
 .search {
   display: flex;
-  align-items: center;
   flex: 1;
   padding: 0 32px;
+  padding-top: 48vh;
   background-color: var(--core-secondary-1);
 }
 
@@ -50,17 +50,11 @@ input:focus-visible {
   }
 
   .search-wrapper {
-    /* align-items: flex-start; */
     border-bottom: 2px solid var(--core-secondary-3);
   }
   .margin {
     margin-top: 20px;
   }
-
-  /* .input-class {
-    width: auto;
-    padding-left: 8px;
-  } */
 
   input {
     font-size: 16px;
