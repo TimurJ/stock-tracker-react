@@ -1,0 +1,98 @@
+.stats-wrapper {
+  padding-top: 33px;
+}
+
+.key-stats-error {
+  width: 100%;
+  height: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  color: var(--core-primary-2);
+  border-bottom: solid 1px var(--core-secondary-3);
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stats-title {
+  display: block;
+  font-family: 'Merriweather', serif;
+  color: var(--core-primary-2);
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 7px;
+  padding-bottom: 19px;
+}
+
+.stats-section {
+  flex: 1;
+}
+
+.stats-section:nth-of-type(2) {
+  margin: 0 49px 0 49px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--core-secondary-3);
+  padding: 8px 2px 8px 7px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  color: #2b2b2b;
+}
+
+.stats-row > span {
+  color: #7f7f7f;
+}
+
+.stats-row:last-of-type {
+  border-bottom: none;
+}
+
+.stats-row > span {
+  font-weight: normal;
+  color: #7f7f7f;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 834px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .stats-wrapper {
+    padding: 31px 8px 20px 8px;
+  }
+
+  .stats-title {
+    padding-left: 2px;
+  }
+
+  .stats-row {
+    padding: 9px 2px 8px 7px;
+  }
+
+  .stats-row > span {
+    padding-right: 6px;
+  }
+
+  .stats-section:nth-of-type(2) {
+    margin: 0px;
+  }
+
+  .stats-row:last-of-type {
+    border-bottom: 1px solid var(--core-secondary-3);
+  }
+
+  .stats-section:last-of-type > .stats-row:last-of-type {
+    border-bottom: none;
+  }
+}

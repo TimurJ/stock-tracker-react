@@ -1,4 +1,5 @@
 import Graph from '../Graph/Graph'
+import KeyStats from '../KeyStats/KeyStats'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import SearchBar from '../SearchBar/SearchBar'
 import TopBar from '../TopBar/TopBar'
@@ -14,7 +15,7 @@ const Dashboard: React.FC = () => {
       <div className="main-section">
         <SearchBar additionalStyles={'margin'} />
         <Graph />
-        <KeyStats stockSymbol={stock} />
+        <KeyStats />
       </div>
       <div className="right-sidebar">
         <News stockSymbol={stock} />
