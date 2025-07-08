@@ -6,25 +6,18 @@ import { useSearchData } from '../../hooks/useSearchData'
 interface StockOptionProps {
   symbol: string
   stockName: string
-  active: boolean
-  position: number
 }
 
-const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName, active }) => {
+const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName }) => {
   const { searchValue } = useSearchData()
-  const handleClick = () => {}
 
   return (
     <div>
       <Link to={`/${symbol}`} onMouseDown={(event) => event.preventDefault()}>
-        <div
-          onMouseEnter={() => {}}
-          className={`stock-suggested ${active && 'hovered'}`}
-          onClick={handleClick}
-        >
-          <HighlightedWord word={symbol} searchToCompare={searchValue} useSeparator={true} />
+        <div className={'stock-suggested'}>
+          <HighlightedWord word={symbol} searchToCompare={searchValue} />
           {`-\u00A0`}
-          <HighlightedWord word={stockName} searchToCompare={searchValue} useSeparator={false} />
+          <HighlightedWord word={stockName} searchToCompare={searchValue} />
         </div>
       </Link>
     </div>

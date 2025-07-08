@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.hovered {
+.stock-suggested:hover {
   background-color: var(--core-secondary-2);
   border-radius: 20px;
   color: #000;

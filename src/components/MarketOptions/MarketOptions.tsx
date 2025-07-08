@@ -10,14 +10,8 @@ const MarketOptions: React.FC<MarketOptionsProps> = ({ market, filteredStocks })
   return (
     <div>
       <div className="market-name">{market}</div>
-      {filteredStocks.map((stock, index) => (
-        <StockOption
-          key={stock.displaySymbol}
-          position={index}
-          symbol={stock.symbol}
-          active={false}
-          stockName={stock.description}
-        />
+      {filteredStocks.map((stock) => (
+        <StockOption key={stock.symbol} symbol={stock.symbol} stockName={stock.description} />
       ))}
     </div>
   )

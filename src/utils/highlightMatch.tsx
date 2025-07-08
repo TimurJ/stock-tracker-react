@@ -22,5 +22,6 @@ export const highlightMatch = (word: string, searchToCompare: string) => {
   if (lastIndex < word.length) {
     parts.push(<span key={lastIndex}>{word.substring(lastIndex)}</span>)
   }
+
   return parts
 }
