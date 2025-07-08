@@ -4,6 +4,7 @@ import { onlyLetters } from '../utils/inputUtils'
 
 export const SearchDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [searchValue, setSearchValue] = useState<string>('')
+  const [searchResult, setSearchResult] = useState<string>('')
 
   const handleSetSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value
@@ -14,8 +15,8 @@ export const SearchDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }
 
   const contextValue = useMemo(
-    () => ({ searchValue, setSearchValue: handleSetSearchValue }),
-    [searchValue]
+    () => ({ searchValue, searchResult, setSearchValue: handleSetSearchValue, setSearchResult }),
+    [searchValue, searchResult]
   )
 
   return <SearchDataContext.Provider value={contextValue}>{children}</SearchDataContext.Provider>

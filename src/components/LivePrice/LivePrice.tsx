@@ -21,7 +21,7 @@ const LivePrice: React.FC<LivePriceProps> = ({ stockSymbol }) => {
       setChange(Math.random() * 10)
       setChangePercent(Math.random() * 5)
       setError(false)
-    }, 10)
+    }, 1000)
 
     return () => {
       clearInterval(interval)

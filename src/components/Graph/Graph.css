@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
+  stroke-opacity: 0;
+}
+.recharts-wrapper .recharts-cartesian-grid-vertical line:last-child {
+  stroke-opacity: 0;
+}
+
+.chart {
+  height: 600px;
+  display: flex;
+  overflow-x: auto;
+  user-select: none;
+  padding-top: 31px;
+}
+
+.chart-inner {
+  flex: 1;
+  display: flex;
+  min-width: 1100px;
+}
+
+.loading-fail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  color: var(--core-primary-2);
+  border-bottom: 2px solid var(--core-secondary-3);
+}

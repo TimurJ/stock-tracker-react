@@ -1,0 +1,136 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 129px 1fr 351px;
+  grid-template-rows: 1fr 56px;
+  grid-template-areas:
+    'left-sidebar main-section right-sidebar'
+    'left-sidebar footer right-sidebar';
+  background-color: var(--core-secondary-1);
+}
+
+.left-sidebar {
+  grid-area: left-sidebar;
+}
+
+.top-bar {
+  grid-area: top-bar;
+  display: none;
+}
+
+.main-section {
+  grid-area: main-section;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  justify-content: flex-start;
+  padding: 0px 37px;
+  background-color: var(--core-secondary-1);
+  animation: slide-up 0.75s ease-out forwards;
+  -webkit-animation: slide-up 0.75s ease-out forwards;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(45%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.right-sidebar {
+  grid-area: right-sidebar;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--core-secondary-2);
+  animation: slide-in-from-right 0.75s ease-out forwards;
+  -webkit-animation: slide-in-from-right 0.75s ease-out forwards;
+}
+
+@keyframes slide-in-from-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.footer {
+  grid-area: footer;
+  padding: 0px 32px;
+  background-color: var(--core-secondary-1);
+}
+
+@media only screen and (max-width: 1366px) {
+  .dashboard {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto auto 56px;
+    grid-template-areas:
+      'top-bar'
+      'main-section'
+      'right-sidebar'
+      'footer';
+  }
+
+  .main-section {
+    padding-bottom: 85px;
+  }
+
+  .left-sidebar {
+    display: none;
+  }
+
+  .top-bar {
+    display: flex;
+  }
+
+  .right-sidebar {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto auto 57px;
+    grid-template-areas:
+      'top-bar'
+      'main-section'
+      'right-sidebar'
+      'footer';
+  }
+
+  .right-sidebar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .dashboard {
+    grid-template-rows: 80px auto auto 57px;
+  }
+
+  .main-section {
+    padding: 0 14px 10px 14px;
+    padding-bottom: 10px;
+  }
+
+  .right-sidebar {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .footer {
+    padding: 0;
+  }
+}

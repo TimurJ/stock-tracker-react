@@ -1,0 +1,11 @@
+.top-logo {
+  height: 55px;
+}
+
+.top-bar {
+  width: 100vw;
+  height: 80px;
+  background-color: var(--core-secondary-2);
+  justify-content: center;
+  align-items: center;
+}

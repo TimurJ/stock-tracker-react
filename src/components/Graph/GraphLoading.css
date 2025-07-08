@@ -1,0 +1,41 @@
+.graph-loading {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graph-one {
+  animation: 0.8s ease -0.48s infinite normal none running graph-animation;
+  will-change: transform;
+}
+
+.graph-two {
+  animation: 0.8s ease -0.326154s infinite normal none running graph-animation;
+  will-change: transform;
+}
+
+.graph-three {
+  animation: 0.8s ease -0.172308s infinite normal none running graph-animation;
+  will-change: transform;
+}
+
+.graph-four {
+  animation: 0.8s ease -0.0184615s infinite normal none running graph-animation;
+  will-change: transform;
+}
+
+@keyframes graph-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 35px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

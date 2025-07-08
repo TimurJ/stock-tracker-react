@@ -9,11 +9,16 @@ interface StockOptionProps {
 }
 
 const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName }) => {
-  const { searchValue } = useSearchData()
+  const { searchValue, setSearchResult } = useSearchData()
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    setSearchResult(symbol)
+  }
 
   return (
     <div>
-      <Link to={`/${symbol}`} onMouseDown={(event) => event.preventDefault()}>
+      <Link to={`/${symbol}`} onMouseDown={handleMouseDown}>
         <div className={'stock-suggested'}>
           <HighlightedWord word={symbol} searchToCompare={searchValue} />
           {`-\u00A0`}
