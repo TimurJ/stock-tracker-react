@@ -1,0 +1,43 @@
+.top-peers-loading {
+  display: flex;
+  width: 317px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 9px;
+}
+
+.top-peers-one {
+  animation: 0.8s ease -0.48s infinite normal none running top-peers-animation;
+  will-change: transform;
+}
+
+.top-peers-two {
+  animation: 0.8s ease -0.326154s infinite normal none running top-peers-animation;
+  will-change: transform;
+}
+
+.top-peers-three {
+  animation: 0.8s ease -0.172308s infinite normal none running top-peers-animation;
+  will-change: transform;
+}
+
+.top-peers-four {
+  animation: 0.8s ease -0.0184615s infinite normal none running top-peers-animation;
+  will-change: transform;
+}
+
+@keyframes top-peers-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 15px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

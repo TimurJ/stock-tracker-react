@@ -5,6 +5,7 @@ import { News } from '../News/News'
 import SearchBar from '../SearchBar/SearchBar'
 import Summary from '../Summary/Summary'
 import TopBar from '../TopBar/TopBar'
+import TopPeers from '../TopPeers/TopPeers'
 import './Dashboard.css'
 
 const Dashboard: React.FC = () => {
@@ -22,7 +23,7 @@ const Dashboard: React.FC = () => {
       <div className="right-sidebar">
         <News />
         <Summary />
-        <Peers stockSymbol={stock} />
+        <TopPeers />
       </div>
       <div className="footer">
         <Indexes />
