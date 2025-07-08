@@ -1,6 +1,7 @@
 import Graph from '../Graph/Graph'
 import KeyStats from '../KeyStats/KeyStats'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
+import { News } from '../News/News'
 import SearchBar from '../SearchBar/SearchBar'
 import TopBar from '../TopBar/TopBar'
 import './Dashboard.css'
@@ -18,7 +19,7 @@ const Dashboard: React.FC = () => {
         <KeyStats />
       </div>
       <div className="right-sidebar">
-        <News stockSymbol={stock} />
+        <News />
         <Summary stockSymbol={stock} />
         <Peers stockSymbol={stock} />
       </div>

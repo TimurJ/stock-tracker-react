@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300&display=swap');
+
+.news-wrapper {
+  width: 317px;
+}
+
+.news-error {
+  display: flex;
+  width: 317px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--core-secondary-4);
+  margin-top: 44px;
+  margin-bottom: 16px;
+  font-family: 'Merriweather';
+  font-size: 16px;
+  color: var(--core-primary-2);
+}
+
+.news-title {
+  font-family: 'Merriweather';
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--core-primary-2);
+  padding-bottom: 9px;
+  margin: 44px 16px 0px 16px;
+}
+
+.news-headline,
+.news-headline > a {
+  font-family: 'Merriweather';
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--core-primary-2);
+  line-height: 1.54;
+  padding-bottom: 9px;
+  text-decoration: none;
+}
+
+.news-container {
+  width: 288px;
+  margin: 0px 16px 0px 16px;
+}
+
+.news-date {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  font-style: italic;
+  color: #7f7f7f;
+}
+
+.lines {
+  width: 317px;
+  padding-top: 19px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--core-secondary-4);
+}
+
+@media only screen and (max-width: 1366px) {
+  .news-title {
+    margin-top: 0px;
+  }
+
+  .news-wrapper {
+    margin-left: 25px;
+  }
+
+  .news-error {
+    margin: 0px;
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .news-wrapper {
+    width: 350px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .news-title {
+    margin: 0;
+    padding-left: 10px;
+  }
+
+  .news-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .news-container {
+    width: 340px;
+    margin: 0;
+    padding: 0 10px;
+  }
+
+  .lines {
+    width: 350px;
+  }
+}
