@@ -1,9 +1,9 @@
+import './LivePrice.css'
 import { useEffect, useState } from 'react'
 import LivePriceLoadingError from './LivePriceLoadingError'
 import LivePriceLoading from './LivePriceLoading'
 import upArrow from '../../assets/up-arrow.svg'
 import downArrow from '../../assets/down-arrow.svg'
-import './LivePrice.css'
 
 interface LivePriceProps {
   stockSymbol?: string

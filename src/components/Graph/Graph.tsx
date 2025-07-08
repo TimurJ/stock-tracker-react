@@ -18,7 +18,6 @@ const Graph: React.FC = () => {
   const [reference, startDrag] = useDrag()
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const testData = [100, 200, 250, 220, 210]
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
@@ -38,16 +37,29 @@ const Graph: React.FC = () => {
     return <GraphLoading />
   }
 
+  const testData = [
+    { close: 100, label: '1' },
+    { close: 110, label: '2' },
+    { close: 140, label: '3' },
+    { close: 130, label: '4' },
+    { close: 110, label: '5' },
+    { close: 150, label: '6' },
+    { close: 150, label: '7' },
+    { close: 170, label: '8' },
+    { close: 180, label: '9' },
+    { close: 160, label: '10' },
+    { close: 200, label: '11' },
+    { close: 200, label: '12' },
+    { close: 220, label: '13' },
+    { close: 250, label: '14' },
+  ]
+
   return (
     <div className="chart" ref={reference} onMouseDown={startDrag}>
       <div className="chart-inner">
         <ResponsiveContainer width="99%">
           <LineChart data={testData}>
-            <CartesianGrid
-              stroke="#d1d1d1"
-              strokeWidth={0.4}
-              verticalFill={['#ffffff00', '#ededed80']}
-            />
+            <CartesianGrid stroke="#d1d1d1" strokeWidth={0.4} />
 
             <YAxis
               stroke="#eaebeb"
@@ -65,7 +77,7 @@ const Graph: React.FC = () => {
               tickSize={10}
               tickCount={12}
               tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-              interval={5}
+              interval={2}
               allowDuplicatedCategory={false}
               dataKey="label"
               dy={5}

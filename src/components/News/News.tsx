@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
 import './News.css'
+import { useEffect, useState } from 'react'
 import NewsError from './NewsError'
 import NewsLoading from './NewsLoading'
 
-export const News: React.FC = () => {
+const News: React.FC = () => {
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -33,28 +33,44 @@ export const News: React.FC = () => {
       source: 'This is a test news source',
       url: 'This is a test news URL',
     },
+    {
+      open: 10,
+      headline: 'This is a test headline',
+      datetime: 100,
+      source: 'This is a test news source',
+      url: 'This is a test news URL',
+    },
+    {
+      open: 10,
+      headline: 'This is a test headline',
+      datetime: 100,
+      source: 'This is a test news source',
+      url: 'This is a test news URL',
+    },
   ]
 
   return (
     <div className="news-wrapper">
       <h3 className="news-title">Latest News</h3>
-      {news.map((element, i) => {
+      {news.map((newsArticle, index) => {
         return (
-          <div className="news-outer" key={i}>
+          <div className="news-outer" key={index}>
             <div className="news-container">
               <div className="news-headline">
-                <a href={element.url} target="_blank" rel="noreferrer">
-                  {element.headline.substring(0, 100)}
+                <a href={newsArticle.url} target="_blank" rel="noreferrer">
+                  {newsArticle.headline.substring(0, 100)}
                 </a>
               </div>
               <div className="news-date" data-testid="days-ago">
-                {element.datetime} ago - {element.source}
+                {newsArticle.datetime} ago - {newsArticle.source}
               </div>
             </div>
-            {i < 2 ? <div className="lines" key={i}></div> : null}
+            {index < 2 ? <div className="lines" key={index}></div> : null}
           </div>
         )
       })}
     </div>
   )
 }
+
+export default News

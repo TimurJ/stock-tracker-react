@@ -4,7 +4,7 @@ import { useState } from 'react'
 import LivePrice from '../LivePrice/LivePrice'
 
 interface SearchBarProps {
-  additionalStyles: string
+  additionalStyles?: string
 }
 const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
   const { searchValue, searchResult, setSearchValue } = useSearchData()
@@ -30,8 +30,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
           placeholder="Enter a stock name or symbol"
         />
         {searchValue && isFocused && <SuggestionPanel />}
-        {!isFocused && searchResult && <LivePrice stockSymbol={searchValue} />}
       </div>
+      {!isFocused && searchResult && <LivePrice stockSymbol={searchValue} />}
     </div>
   )
 }

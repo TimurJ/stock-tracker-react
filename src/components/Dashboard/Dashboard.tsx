@@ -1,12 +1,13 @@
+import './Dashboard.css'
 import Graph from '../Graph/Graph'
+import Indexes from '../Indexes/Indexes'
 import KeyStats from '../KeyStats/KeyStats'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
-import { News } from '../News/News'
+import News from '../News/News'
 import SearchBar from '../SearchBar/SearchBar'
 import Summary from '../Summary/Summary'
 import TopBar from '../TopBar/TopBar'
 import TopPeers from '../TopPeers/TopPeers'
-import './Dashboard.css'
 
 const Dashboard: React.FC = () => {
   return (

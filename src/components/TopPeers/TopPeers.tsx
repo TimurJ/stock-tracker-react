@@ -26,7 +26,7 @@ const TopPeers: React.FC = () => {
     return <TopPeersLoading />
   }
 
-  const topPeers = ['Test Peer', 'Test Peer', 'Test Peer', 'Test Peer']
+  const topPeers = ['AAPL', 'TSLA', 'MSFT', 'META']
 
   return (
     <div className="peers-wrapper">
