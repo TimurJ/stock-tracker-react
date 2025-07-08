@@ -1,4 +1,4 @@
-import './LivePrice.css'
+import './LivePriceLoading.css'
 
 const LivePriceLoading: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import './StockOption.css'
 import HighlightedWord from '../HighlightedWord/HighlightedWord'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSearchData } from '../../hooks/useSearchData'
 
 interface StockOptionProps {
@@ -9,22 +9,24 @@ interface StockOptionProps {
 }
 
 const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName }) => {
-  const { searchValue, setSearchResult } = useSearchData()
+  const { searchValue, setSearchValue, setSearchResult } = useSearchData()
+  const navigate = useNavigate()
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault()
+  const handleMouseDown = () => {
+    setSearchValue('')
     setSearchResult(symbol)
+    navigate(`/${symbol}`)
   }
 
   return (
     <div>
-      <Link to={`/${symbol}`} onMouseDown={handleMouseDown}>
+      <a onMouseDown={handleMouseDown}>
         <div className={'stock-suggested'}>
           <HighlightedWord word={symbol} searchToCompare={searchValue} />
           {`-\u00A0`}
           <HighlightedWord word={stockName} searchToCompare={searchValue} />
         </div>
-      </Link>
+      </a>
     </div>
   )
 }

@@ -8,8 +8,14 @@ import SearchBar from '../SearchBar/SearchBar'
 import Summary from '../Summary/Summary'
 import TopBar from '../TopBar/TopBar'
 import TopPeers from '../TopPeers/TopPeers'
+import { useParams } from 'react-router-dom'
+import { useSearchData } from '../../hooks/useSearchData'
 
 const Dashboard: React.FC = () => {
+  const { stock } = useParams<{ stock: string }>()
+  const { setSearchResult } = useSearchData()
+  setSearchResult(stock || '')
+
   return (
     <div className="dashboard">
       <div className="left-sidebar">

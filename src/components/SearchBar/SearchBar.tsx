@@ -2,6 +2,7 @@ import SuggestionPanel from '../SuggestionPanel/SuggestionPanel'
 import { useSearchData } from '../../hooks/useSearchData'
 import { useState } from 'react'
 import LivePrice from '../LivePrice/LivePrice'
+import { onlyLetters } from '../../utils/inputUtils'
 
 interface SearchBarProps {
   additionalStyles?: string
@@ -9,6 +10,14 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
   const { searchValue, searchResult, setSearchValue } = useSearchData()
   const [isFocused, setIsFocused] = useState(false)
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value
+
+    if (onlyLetters(inputValue)) {
+      setSearchValue(inputValue)
+    }
+  }
 
   const handleFocus = () => {
     setIsFocused(true)
@@ -23,11 +32,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
         <input
           id="stock-input"
           type="text"
-          onChange={setSearchValue}
+          onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           value={searchValue}
-          placeholder="Enter a stock name or symbol"
+          placeholder={searchResult || 'Enter a stock name or symbol'}
         />
         {searchValue && isFocused && <SuggestionPanel />}
       </div>

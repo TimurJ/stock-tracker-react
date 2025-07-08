@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react'
+import './Homepage.css'
 import SplashScreen from '../SplashScreen/SplashScreen'
 import SearchScreen from '../SearchScreen/SearchScreen'
-import './Homepage.css'
+import { useEffect, useState } from 'react'
+import { useSearchData } from '../../hooks/useSearchData'
 
 const Homepage: React.FC = () => {
   const [completed, setCompleted] = useState(0)
+  const { setSearchValue, setSearchResult } = useSearchData()
+
+  useEffect(() => {
+    setSearchValue('')
+    setSearchResult('')
+  }, [setSearchValue, setSearchResult])
 
   useEffect(() => {
     if (completed < 100) {
