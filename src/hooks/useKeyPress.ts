@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export const useKeyPress = function (targetKey: string) {
+export const useKeyPress = (targetKey: string) => {
   const [keyPressed, setKeyPressed] = useState(false)
 
-  function downHandler(event: KeyboardEvent) {
+  const downHandler = (event: KeyboardEvent) => {
     if (event.key === targetKey) {
       setKeyPressed(true)
     }
@@ -14,7 +14,8 @@ export const useKeyPress = function (targetKey: string) {
       setKeyPressed(false)
     }
   }
-  React.useEffect(() => {
+
+  useEffect(() => {
     window.addEventListener('keydown', downHandler)
     window.addEventListener('keyup', upHandler)
 

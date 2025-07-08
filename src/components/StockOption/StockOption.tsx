@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import { QueryContext } from '../../context/QueryContext'
 import './StockOption.css'
-import { Link } from 'react-router-dom'
 import HighlightedWord from '../HighlightedWord/HighlightedWord'
+import { Link } from 'react-router-dom'
+import { useSearchData } from '../../hooks/useSearchData'
 
 interface StockOptionProps {
   symbol: string
@@ -11,25 +10,21 @@ interface StockOptionProps {
   position: number
 }
 
-const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName, active, position }) => {
-  const { stockSearch, setStockSearch, setCursor } = useContext(QueryContext)
-
-  const handleClick = () => {
-    setStockSearch('')
-  }
+const StockOption: React.FC<StockOptionProps> = ({ symbol, stockName, active }) => {
+  const { searchValue } = useSearchData()
+  const handleClick = () => {}
 
   return (
     <div>
       <Link to={`/${symbol}`} onMouseDown={(event) => event.preventDefault()}>
         <div
-          onMouseEnter={() => setCursor(position)}
+          onMouseEnter={() => {}}
           className={`stock-suggested ${active && 'hovered'}`}
           onClick={handleClick}
         >
-          <HighlightedWord word={symbol} searchToCompare={stockSearch} /> {`-\u00A0`}
-          {stockName.split(' ').map((word, i) => (
-            <HighlightedWord key={i} word={word} searchToCompare={stockSearch} />
-          ))}
+          <HighlightedWord word={symbol} searchToCompare={searchValue} useSeparator={true} />
+          {`-\u00A0`}
+          <HighlightedWord word={stockName} searchToCompare={searchValue} useSeparator={false} />
         </div>
       </Link>
     </div>

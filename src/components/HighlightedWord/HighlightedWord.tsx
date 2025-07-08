@@ -1,17 +1,22 @@
-import { highlightMatch } from '../../utils/highLightMatch'
+import { highlightMatch } from '../../utils/highlightMatch'
 
 interface HighlightedWordProps {
   word: string
   searchToCompare: string
+  useSeparator: boolean
 }
 
-const HighlightedWord: React.FC<HighlightedWordProps> = ({ word, searchToCompare }) => {
-  const [strongText, normalText] = highlightMatch(word, searchToCompare)
+const HighlightedWord: React.FC<HighlightedWordProps> = ({
+  word,
+  searchToCompare,
+  useSeparator,
+}) => {
+  const highlightedLetters = highlightMatch(word, searchToCompare)
 
   return (
     <span>
-      <strong className="black">{strongText}</strong>
-      {`${normalText}\u00A0`}
+      {highlightedLetters}
+      {useSeparator ? '\u00A0' : ''}
     </span>
   )
 }
