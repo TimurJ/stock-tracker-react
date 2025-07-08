@@ -1,0 +1,126 @@
+.summary-container {
+  width: 317px;
+  margin-top: 23px;
+}
+
+.summary-error {
+  display: flex;
+  width: 317px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--core-secondary-4);
+  margin-top: 8px;
+  margin-bottom: 9px;
+  font-family: 'Merriweather';
+  font-size: 16px;
+  color: var(--core-primary-2);
+}
+
+.summary-title {
+  font-family: 'Merriweather', serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 9px;
+  color: var(--core-primary-2);
+  margin: 24px 16px 0px 16px;
+}
+
+.company-name {
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  padding-bottom: 2px;
+  color: var(--core-primary-2);
+  margin: 0px 16px 0px 16px;
+}
+
+.company-link {
+  display: inline-block;
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: var(--accent-primary);
+  padding-bottom: 8px;
+  margin: 0px 16px 0px 16px;
+  text-decoration: underline;
+}
+
+.company-summary {
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 40px;
+  line-height: 1.67;
+  letter-spacing: 0.09px;
+  color: var(--core-primary-2);
+  margin: 0px 16px 0px 16px;
+}
+
+.summary-line {
+  border-bottom: 1px solid var(--core-secondary-4);
+}
+
+@media only screen and (max-width: 1366px) {
+  .summary-line {
+    display: none;
+  }
+
+  .summary-title {
+    margin-top: 0px;
+  }
+
+  .summary-container {
+    width: 340px;
+    margin-top: 0px;
+  }
+
+  .company-summary {
+    margin-right: 0px;
+  }
+
+  .summary-error {
+    margin: 0px;
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .summary-container {
+    width: 370px;
+    margin-right: 40px;
+  }
+
+  .company-summary {
+    padding-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .summary-container {
+    width: 350px;
+    padding: 0;
+    margin: 0;
+    padding-top: 48px;
+  }
+
+  .summary-title {
+    margin: 0;
+    padding-left: 10px;
+  }
+  .company-name {
+    margin: 0;
+    padding-left: 14px;
+  }
+
+  .company-link {
+    margin: 0;
+    padding-left: 14px;
+  }
+  .company-summary {
+    width: 340px;
+    margin: 0;
+    padding: 0;
+    padding-left: 14px;
+    word-break: break-all;
+  }
+}
