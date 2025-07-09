@@ -8,6 +8,7 @@
   border-top: 1px solid var(--core-secondary-3);
   font-family: 'Roboto';
   font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .name {
@@ -33,6 +34,10 @@
   font-weight: 500;
   color: #ff274b;
   display: flex;
+}
+
+.index-change {
+  width: 12ch;
 }
 
 .positiveChange:last-child {

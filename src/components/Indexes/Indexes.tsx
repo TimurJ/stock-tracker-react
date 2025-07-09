@@ -4,10 +4,12 @@ import IndexesError from './IndexesError'
 import IndexLoading from './IndexesLoading'
 import upArrow from '../../assets/up-arrow.svg'
 import downArrow from '../../assets/down-arrow.svg'
+import { useMockLiveData } from '../../hooks/useMockLiveData'
 
 const Indexes: React.FC = () => {
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [indexPrice, indexChange, indexPercentChange] = useMockLiveData(900, 1000)
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
@@ -27,15 +29,27 @@ const Indexes: React.FC = () => {
     return <IndexLoading />
   }
 
-  const spy = { indexPrice: 100, indexChange: 10, indexPercentChange: 10 }
-  const dia = { indexPrice: 100, indexChange: -10, indexPercentChange: -10 }
-  const iwm = { indexPrice: 100, indexChange: 10, indexPercentChange: 10 }
+  const spy = {
+    indexPrice: indexPrice,
+    indexChange: indexChange,
+    indexPercentChange: indexPercentChange,
+  }
+  const dia = {
+    indexPrice: indexPrice,
+    indexChange: indexChange,
+    indexPercentChange: indexPercentChange,
+  }
+  const iwm = {
+    indexPrice: indexPrice,
+    indexChange: indexChange,
+    indexPercentChange: indexPercentChange,
+  }
 
   return (
     <div className="index">
       <div className="index-combo">
         <div className="name">
-          <span className="index-name">SPY</span> ${spy.indexPrice}
+          <span className="index-name">SPY</span> ${spy.indexPrice.toFixed(2)}
         </div>
 
         <div className={spy.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
@@ -45,7 +59,7 @@ const Indexes: React.FC = () => {
             alt="arrow"
           />
           <span className="index-change">
-            {spy.indexChange} | {spy.indexPercentChange}%
+            {spy.indexChange.toFixed(2)} | {spy.indexPercentChange.toFixed(2)}%
           </span>
         </div>
       </div>
@@ -54,7 +68,7 @@ const Indexes: React.FC = () => {
 
       <div className="index-combo">
         <div className="name">
-          <span className="index-name">DIA</span> ${dia.indexPrice}
+          <span className="index-name">DIA</span> ${dia.indexPrice.toFixed(2)}
         </div>
 
         <div className={dia.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
@@ -64,7 +78,7 @@ const Indexes: React.FC = () => {
             alt="arrow"
           />
           <span className="index-change">
-            {dia.indexChange} | {dia.indexPercentChange}%
+            {dia.indexChange.toFixed(2)} | {dia.indexPercentChange.toFixed(2)}%
           </span>
         </div>
       </div>
@@ -73,7 +87,7 @@ const Indexes: React.FC = () => {
 
       <div className="index-combo">
         <div className="name">
-          <span className="index-name">IWM</span> ${iwm.indexPrice}
+          <span className="index-name">IWM</span> ${iwm.indexPrice.toFixed(2)}
         </div>
 
         <div className={iwm.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
@@ -83,7 +97,7 @@ const Indexes: React.FC = () => {
             alt="arrow"
           />
           <span className="index-change">
-            {iwm.indexChange} | {iwm.indexPercentChange}%
+            {iwm.indexChange.toFixed(2)} | {iwm.indexPercentChange.toFixed(2)}%
           </span>
         </div>
       </div>

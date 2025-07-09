@@ -7,12 +7,20 @@
   stroke-opacity: 0;
 }
 
+.recharts-surface:focus {
+  outline: none;
+}
+
 .chart {
   height: 600px;
   display: flex;
   overflow-x: auto;
   user-select: none;
   padding-top: 31px;
+}
+
+.chart:focus {
+  outline: none;
 }
 
 .chart-inner {

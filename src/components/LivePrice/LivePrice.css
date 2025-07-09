@@ -6,6 +6,7 @@
   width: fit-content;
   padding-bottom: 14px;
   border-bottom: 2px solid var(--core-secondary-3);
+  font-variant-numeric: tabular-nums;
 }
 
 .live-price {
@@ -23,19 +24,19 @@
 }
 
 .price-change-positive {
-  width: fit-content;
   font-size: 16px;
   font-family: Roboto;
   font-weight: 500;
   color: #01c38d;
+  width: 12ch;
 }
 
 .price-change-negative {
-  width: fit-content;
   font-size: 16px;
   font-family: Roboto;
   font-weight: 500;
   color: #ff274b;
+  width: 12ch;
 }
 
 .live-price-error {

@@ -1,3 +1,4 @@
+import './Graph.css'
 import { useEffect, useState } from 'react'
 import { useDrag } from '../../hooks/useDrag'
 import GraphFailedToLoad from './GraphError'
@@ -13,6 +14,7 @@ import {
   YAxis,
 } from 'recharts'
 import CustomisedAxisTick from './CustomisedAxisTick'
+import { data } from './graphdata'
 
 const Graph: React.FC = () => {
   const [reference, startDrag] = useDrag()
@@ -37,28 +39,39 @@ const Graph: React.FC = () => {
     return <GraphLoading />
   }
 
-  const testData = [
-    { close: 100, label: '1' },
-    { close: 110, label: '2' },
-    { close: 140, label: '3' },
-    { close: 130, label: '4' },
-    { close: 110, label: '5' },
-    { close: 150, label: '6' },
-    { close: 150, label: '7' },
-    { close: 170, label: '8' },
-    { close: 180, label: '9' },
-    { close: 160, label: '10' },
-    { close: 200, label: '11' },
-    { close: 200, label: '12' },
-    { close: 220, label: '13' },
-    { close: 250, label: '14' },
-  ]
+  // let price = 100
+  // let hour = 8
+
+  // const getTime = (increment: number) => {
+  //   if (increment % 60 === 0) {
+  //     hour += 1
+  //   }
+  //   return `${hour.toString().padStart(2, '0')}:${(increment % 60).toString().padStart(2, '0')}`
+  // }
+
+  // const testData = Array.from({ length: 50 }).map((_, index) => {
+  //   if (Math.round(Math.random()) > 0) {
+  //     price += 10
+  //   } else {
+  //     price -= 10
+  //   }
+  //   return { close: price, label: getTime(index * 5) }
+  // })
+
+  const formattedData = data.map((graphData) => {
+    const date = new Date(graphData.t)
+    const time = `${date.getHours().toString().padStart(2, '0')}:${date
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}`
+    return { time, close: graphData.c }
+  })
 
   return (
     <div className="chart" ref={reference} onMouseDown={startDrag}>
       <div className="chart-inner">
-        <ResponsiveContainer width="99%">
-          <LineChart data={testData}>
+        <ResponsiveContainer width="99%" height="99%">
+          <LineChart data={formattedData}>
             <CartesianGrid stroke="#d1d1d1" strokeWidth={0.4} />
 
             <YAxis
@@ -66,7 +79,8 @@ const Graph: React.FC = () => {
               tickSize={10}
               tickCount={12}
               allowDecimals={true}
-              domain={['auto', 'auto']}
+              type="number"
+              domain={['dataMin - 0.5', 'auto']}
               padding={{ top: 18 }}
               dx={-5}
               tick={<CustomisedAxisTick />}
@@ -77,9 +91,9 @@ const Graph: React.FC = () => {
               tickSize={10}
               tickCount={12}
               tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-              interval={2}
+              interval={5}
               allowDuplicatedCategory={false}
-              dataKey="label"
+              dataKey="time"
               dy={5}
               textAnchor="beginning"
             />
@@ -93,12 +107,11 @@ const Graph: React.FC = () => {
               }}
             />
 
-            <ReferenceLine y={200} stroke="#aaabd1" strokeDasharray="5 3" />
+            <ReferenceLine y={180.5} stroke="#aaabd1" strokeDasharray="5 3" />
 
             <Line
               hide={false}
               name="Close"
-              data={testData}
               dataKey="close"
               stroke="#aaabd1"
               strokeWidth={2}
@@ -106,16 +119,15 @@ const Graph: React.FC = () => {
               activeDot={{ r: 4 }}
             />
 
-            <Line
+            {/* <Line
               hide={true}
               name="Yesterday Close"
-              data={testData}
-              dataKey="close"
+              dataKey="c"
               stroke="grey"
               strokeWidth={2}
               dot={false}
               activeDot={{ r: 4 }}
-            />
+            /> */}
           </LineChart>
         </ResponsiveContainer>
       </div>
