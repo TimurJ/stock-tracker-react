@@ -1,9 +1,9 @@
-import type { CollateralData } from '../../context/CollateralDataContext'
+import type { StockBasics } from '../../context/CollateralDataContext'
 import StockOption from '../StockOption/StockOption'
 
 interface MarketOptionsProps {
   market: string
-  filteredStocks: CollateralData[]
+  filteredStocks: StockBasics[]
 }
 
 const MarketOptions: React.FC<MarketOptionsProps> = ({ market, filteredStocks }) => {

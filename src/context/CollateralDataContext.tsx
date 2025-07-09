@@ -1,20 +1,28 @@
 import { createContext } from 'react'
 
-export interface CollateralData {
-  currency: string
+export interface StockBasics {
   description: string
-  displaySymbol: string
-  figi: string
-  isin: null
-  mic: string
-  shareClassFIGI: string
   symbol: string
-  symbol2: string
-  type: string
+}
+
+export interface StockNews {
+  headline: string
+  datetime: number
+  source: string
+  url: string
+}
+
+export interface StockSummary {
+  companyName: string
+  symbol: string
+  website: string
+  description: string
 }
 
 interface CollateralDataState {
-  stocks: CollateralData[]
+  stockBasics: StockBasics[]
+  stockNews: StockNews[]
+  stockSummary: StockSummary | undefined
 }
 
 export const CollateralDataContext = createContext<CollateralDataState | undefined>(undefined)

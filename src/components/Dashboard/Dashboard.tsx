@@ -10,11 +10,13 @@ import TopBar from '../TopBar/TopBar'
 import TopPeers from '../TopPeers/TopPeers'
 import { useParams } from 'react-router-dom'
 import { useSearchData } from '../../hooks/useSearchData'
+import { useEffect } from 'react'
 
 const Dashboard: React.FC = () => {
   const { stock } = useParams<{ stock: string }>()
   const { setSearchResult } = useSearchData()
-  setSearchResult(stock || '')
+
+  useEffect(() => setSearchResult(stock || ''), [setSearchResult, stock])
 
   return (
     <div className="dashboard">

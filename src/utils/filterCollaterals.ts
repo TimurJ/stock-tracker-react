@@ -1,6 +1,6 @@
-import type { CollateralData } from '../context/CollateralDataContext'
+import type { StockBasics } from '../context/CollateralDataContext'
 
-export const filterCollaterals = (collaterals: CollateralData[], search: string) => {
+export const filterCollaterals = (collaterals: StockBasics[], search: string) => {
   if (!search) {
     return []
   }

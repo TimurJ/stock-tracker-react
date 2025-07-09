@@ -3,13 +3,16 @@ import { useSearchData } from '../../hooks/useSearchData'
 import { useState } from 'react'
 import LivePrice from '../LivePrice/LivePrice'
 import { onlyLetters } from '../../utils/inputUtils'
+import { useCollateralData } from '../../hooks/useCollateralData'
 
 interface SearchBarProps {
   additionalStyles?: string
 }
 const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
   const { searchValue, searchResult, setSearchValue } = useSearchData()
+  const { stockBasics } = useCollateralData()
   const [isFocused, setIsFocused] = useState(false)
+  const searchedStock = stockBasics.find((stock) => stock.symbol === searchResult)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value
@@ -36,7 +39,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ additionalStyles }) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           value={searchValue}
-          placeholder={searchResult || 'Enter a stock name or symbol'}
+          placeholder={
+            searchedStock
+              ? `${searchedStock.symbol} - ${searchedStock.description}`
+              : 'Enter a stock name or symbol'
+          }
         />
         {searchValue && isFocused && <SuggestionPanel />}
       </div>

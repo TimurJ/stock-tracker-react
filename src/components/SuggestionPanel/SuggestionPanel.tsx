@@ -6,11 +6,11 @@ import { useSearchData } from '../../hooks/useSearchData'
 import { useMemo } from 'react'
 
 const SuggestionPanel: React.FC = () => {
-  const { stocks } = useCollateralData()
+  const { stockBasics } = useCollateralData()
   const { searchValue } = useSearchData()
   const filteredStocks = useMemo(
-    () => filterCollaterals(stocks, searchValue),
-    [stocks, searchValue]
+    () => filterCollaterals(stockBasics, searchValue),
+    [stockBasics, searchValue]
   )
 
   return (

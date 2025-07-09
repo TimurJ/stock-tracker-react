@@ -2,10 +2,12 @@ import './News.css'
 import { useEffect, useState } from 'react'
 import NewsError from './NewsError'
 import NewsLoading from './NewsLoading'
+import { useCollateralData } from '../../hooks/useCollateralData'
 
 const News: React.FC = () => {
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const { stockNews } = useCollateralData()
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
@@ -25,34 +27,10 @@ const News: React.FC = () => {
     return <NewsLoading />
   }
 
-  const news = [
-    {
-      open: 10,
-      headline: 'This is a test headline',
-      datetime: 100,
-      source: 'This is a test news source',
-      url: 'This is a test news URL',
-    },
-    {
-      open: 10,
-      headline: 'This is a test headline',
-      datetime: 100,
-      source: 'This is a test news source',
-      url: 'This is a test news URL',
-    },
-    {
-      open: 10,
-      headline: 'This is a test headline',
-      datetime: 100,
-      source: 'This is a test news source',
-      url: 'This is a test news URL',
-    },
-  ]
-
   return (
     <div className="news-wrapper">
       <h3 className="news-title">Latest News</h3>
-      {news.map((newsArticle, index) => {
+      {stockNews.slice(0, 3).map((newsArticle, index) => {
         return (
           <div className="news-outer" key={index}>
             <div className="news-container">
@@ -62,7 +40,7 @@ const News: React.FC = () => {
                 </a>
               </div>
               <div className="news-date" data-testid="days-ago">
-                {newsArticle.datetime} ago - {newsArticle.source}
+                {new Date(newsArticle.datetime).getDay()} days ago - {newsArticle.source}
               </div>
             </div>
             {index < 2 ? <div className="lines" key={index}></div> : null}

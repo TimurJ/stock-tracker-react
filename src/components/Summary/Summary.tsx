@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import './Summary.css'
 import SummaryError from './SummaryError'
 import SummaryLoading from './SummaryLoading'
+import { useCollateralData } from '../../hooks/useCollateralData'
 
 const Summary: React.FC = () => {
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const { stockSummary } = useCollateralData()
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
@@ -17,7 +19,7 @@ const Summary: React.FC = () => {
     }
   }, [])
 
-  if (error) {
+  if (error || !stockSummary) {
     return <SummaryError />
   }
 
@@ -25,31 +27,26 @@ const Summary: React.FC = () => {
     return <SummaryLoading />
   }
 
-  const summary = {
-    companyName: 'Test Company Name',
-    symbol: 'Test Company Symbol',
-    website: 'Test Company Website',
-    description: 'Test Company Description',
-  }
-
   return (
     <div className="summary-container">
       <div className="summary-line"></div>
       <h2 className="summary-title">Company Summary</h2>
       <h3 className="company-name">
-        {summary.companyName} ({summary.symbol})
+        {stockSummary.companyName} ({stockSummary.symbol})
       </h3>
       <a
         className="company-link"
         target="_blank"
         rel="noreferrer"
         href={
-          summary.website.startsWith('w') ? `https://${summary?.website}` : `${summary?.website}`
+          stockSummary.website.startsWith('w')
+            ? `https://${stockSummary.website}`
+            : `${stockSummary.website}`
         }
       >
-        {summary.website}
+        {stockSummary.website}
       </a>
-      <p className="company-summary">{summary.description.substring(0, 500)}...</p>
+      <p className="company-summary">{stockSummary.description.substring(0, 500)}...</p>
       <div className="summary-line"></div>
     </div>
   )
