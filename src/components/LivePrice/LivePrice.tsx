@@ -11,7 +11,7 @@ interface LivePriceProps {
 }
 
 const LivePrice: React.FC<LivePriceProps> = () => {
-  const [livePrice, change, changePercent] = useMockLiveData(90, 100)
+  const [livePrice, change, changePercent] = useMockLiveData(200, 210)
   const [error] = useState(false)
 
   if (error) {

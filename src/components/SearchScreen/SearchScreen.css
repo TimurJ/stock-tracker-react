@@ -26,6 +26,7 @@ input:focus-visible {
 }
 
 .search-wrapper {
+  position: relative;
   display: flex;
   width: 100%;
 }

@@ -3,10 +3,12 @@ import './KeyStats.css'
 import KeyStatsError from './KeyStatsError'
 import KeyStatsLoading from './KeyStatsLoading'
 import { formatNumber } from '../../utils/formatNumber'
+import { useCollateralData } from '../../hooks/useCollateralData'
 
 const KeyStats: React.FC = () => {
   const [error] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const { stockKeyStats } = useCollateralData()
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
@@ -18,27 +20,12 @@ const KeyStats: React.FC = () => {
     }
   }, [])
 
-  if (error) {
+  if (error || !stockKeyStats) {
     return <KeyStatsError />
   }
 
   if (isLoading) {
     return <KeyStatsLoading />
-  }
-
-  const stats = {
-    high: 10,
-    low: 10,
-    open: 10,
-    previousClose: 10,
-    week52High: 10,
-    week52Low: 10,
-    marketCap: 10,
-    peRatio: 10,
-    dividendYield: 10,
-    ttmEPS: 10,
-    volume: 10,
-    avgTotalVolume: 10,
   }
 
   const {
@@ -54,7 +41,7 @@ const KeyStats: React.FC = () => {
     ttmEPS,
     volume,
     avgTotalVolume,
-  } = stats
+  } = stockKeyStats
 
   return (
     <div className="stats-wrapper" data-testid="statistics">

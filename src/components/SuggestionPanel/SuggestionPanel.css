@@ -8,6 +8,8 @@
   overflow-wrap: break-word;
   overflow: auto;
   max-height: 500px;
+  position: absolute;
+  width: 100%;
 }
 .market-name {
   border-bottom: 1px solid var(--core-secondary-3);
