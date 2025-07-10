@@ -20,7 +20,7 @@ const Homepage: React.FC = () => {
       } else {
         clearInterval(intervalId)
       }
-    }, 10)
+    }, 5)
 
     return () => {
       clearInterval(intervalId)
