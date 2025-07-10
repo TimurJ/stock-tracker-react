@@ -1,8 +1,9 @@
 import './Graph.css'
-import { useEffect, useState } from 'react'
-import { useDrag } from '../../hooks/useDrag'
+import CustomisedAxisTick from './CustomisedAxisTick'
 import GraphFailedToLoad from './GraphError'
 import GraphLoading from './GraphLoading'
+import { useEffect, useState } from 'react'
+import { useDrag } from '../../hooks/useDrag'
 import {
   CartesianGrid,
   Line,
@@ -13,8 +14,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import CustomisedAxisTick from './CustomisedAxisTick'
-import { data } from './graphdata'
+import { graphData } from './GraphData'
 
 const Graph: React.FC = () => {
   const [reference, startDrag] = useDrag()
@@ -39,39 +39,20 @@ const Graph: React.FC = () => {
     return <GraphLoading />
   }
 
-  // let price = 100
-  // let hour = 8
-
-  // const getTime = (increment: number) => {
-  //   if (increment % 60 === 0) {
-  //     hour += 1
-  //   }
-  //   return `${hour.toString().padStart(2, '0')}:${(increment % 60).toString().padStart(2, '0')}`
-  // }
-
-  // const testData = Array.from({ length: 50 }).map((_, index) => {
-  //   if (Math.round(Math.random()) > 0) {
-  //     price += 10
-  //   } else {
-  //     price -= 10
-  //   }
-  //   return { close: price, label: getTime(index * 5) }
-  // })
-
-  const formattedData = data.map((graphData) => {
-    const date = new Date(graphData.t)
+  const formattedGraphData = graphData.map((data) => {
+    const date = new Date(data.t)
     const time = `${date.getHours().toString().padStart(2, '0')}:${date
       .getMinutes()
       .toString()
       .padStart(2, '0')}`
-    return { time, close: graphData.c }
+    return { time, close: data.c }
   })
 
   return (
     <div className="chart" ref={reference} onMouseDown={startDrag}>
       <div className="chart-inner">
         <ResponsiveContainer width="99%" height="99%">
-          <LineChart data={formattedData}>
+          <LineChart data={formattedGraphData}>
             <CartesianGrid stroke="#d1d1d1" strokeWidth={0.4} />
 
             <YAxis
@@ -118,16 +99,6 @@ const Graph: React.FC = () => {
               dot={false}
               activeDot={{ r: 4 }}
             />
-
-            {/* <Line
-              hide={true}
-              name="Yesterday Close"
-              dataKey="c"
-              stroke="grey"
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 4 }}
-            /> */}
           </LineChart>
         </ResponsiveContainer>
       </div>

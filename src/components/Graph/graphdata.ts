@@ -1,4 +1,4 @@
-export const data = [
+export const graphData = [
   {
     v: 4042,
     vw: 180.6178,

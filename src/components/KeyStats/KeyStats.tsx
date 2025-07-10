@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
 import './KeyStats.css'
 import KeyStatsError from './KeyStatsError'
 import KeyStatsLoading from './KeyStatsLoading'
+import { useEffect, useState } from 'react'
 import { formatNumber } from '../../utils/formatNumber'
 import { useCollateralData } from '../../hooks/useCollateralData'
 
