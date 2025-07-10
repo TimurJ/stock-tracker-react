@@ -14,8 +14,14 @@ const Homepage: React.FC = () => {
   }, [setSearchValue, setSearchResult])
 
   useEffect(() => {
-    if (completed < 100) {
-      setCompleted((prevState) => prevState + 1)
+    const intervalId = setInterval(() => {
+      if (completed < 100) {
+        setCompleted((prevState) => prevState + 1)
+      }
+    }, 5)
+
+    return () => {
+      clearInterval(intervalId)
     }
   }, [completed])
 
