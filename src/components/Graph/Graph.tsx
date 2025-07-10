@@ -14,7 +14,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { graphData } from './GraphData'
+import { graphData } from './graphDataPoints'
 
 const Graph: React.FC = () => {
   const [reference, startDrag] = useDrag()
