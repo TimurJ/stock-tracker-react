@@ -15,13 +15,7 @@ const Homepage: React.FC = () => {
 
   useEffect(() => {
     if (completed < 100) {
-      const intervalId = setInterval(() => {
-        setCompleted((prevState) => prevState + 1)
-      }, 5)
-
-      return () => {
-        clearInterval(intervalId)
-      }
+      setCompleted((prevState) => prevState + 1)
     }
   }, [completed])
 
