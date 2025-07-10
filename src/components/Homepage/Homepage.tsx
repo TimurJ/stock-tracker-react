@@ -17,18 +17,21 @@ const Homepage: React.FC = () => {
     const intervalId = setInterval(() => {
       if (completed < 100) {
         setCompleted((prevState) => prevState + 1)
+      } else {
+        clearInterval(intervalId)
       }
-    }, 5)
+    }, 10)
 
     return () => {
       clearInterval(intervalId)
     }
   }, [completed])
 
+  console.log(completed)
   return (
     <div className="homepage">
       <SplashScreen completed={completed} />
-      {completed === 100 && <SearchScreen />}
+      {completed >= 100 && <SearchScreen />}
     </div>
   )
 }

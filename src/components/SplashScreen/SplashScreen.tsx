@@ -9,13 +9,13 @@ interface SplashScreenProps {
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ completed }) => {
   return (
-    <div className={completed === 100 ? 'splash-screen splash-screen-short' : 'splash-screen'}>
+    <div className={completed >= 100 ? 'splash-screen splash-screen-short' : 'splash-screen'}>
       <picture>
         <source media="(max-width: 837px)" srcSet={logoHorizontal} />
         <img src={logo} className="splash-logo" alt="logo" />
       </picture>
 
-      {completed === 100 ? null : <ProgressBar completed={completed} />}
+      {completed >= 100 ? null : <ProgressBar completed={completed} />}
     </div>
   )
 }
